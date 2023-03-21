@@ -8,12 +8,19 @@ function loadDogImage(endPoint) {
     Por lo tanto, tu tarea es codificar una promesa que garantice el correcto funcionamiento del código en la función "getRandomDogImage".
   */
   '👇️👇️👇️👇️ TU CODIGO DEBE IR AQUI 👇️👇️👇️👇️'
-  
+    function loadDogImage(apiUrl) {
+        return new Promise((resolve, reject) => {
+          fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => resolve(data.message))
+            .catch(error => reject(error));
+        });
+      }
   '👆️👆️👆️👆️ TU CODIGO DEBE IR AQUI 👆️👆️👆️👆️'
 }
 
 function getRandomDogImage() {
-  loadDogImage('https://dog.ceo/api/breeds/image/random').then((data) => {
+  loadDogImage("https://images.dog.ceo/breeds/bulldog-boston/n02096585_1586.jpg").then((data) => {
     if (data.status === 'success') {
       const dogImage = document.getElementById("dog-image");
       dogImage.src = data.message;
