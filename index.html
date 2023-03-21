@@ -15,25 +15,7 @@
   <div>
     <p>Presiona el siguiente boton para cargar una imagen aleatoria</p>
     <button onclick="getRandomDogImage()">CARGA IMAGEN</button>
-    <script>
-      function loadDogImage(apiUrl) {
-        return new Promise((resolve, reject) => {
-          fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => resolve(data.message))
-            .catch(error => reject(error));
-        });
-      }
-
-      function getRandomDogImage() {
-        const apiUrl =  "https://images.dog.ceo/breeds/spitz-japanese/tofu.jpg";
-        const imgElement = document.getElementById("dog-image");
-        
-        loadDogImage(apiUrl)
-          .then(url => imgElement.src = url)
-          .catch(error => console.error(error));
-      }
-    </script>
+    <script src="index.js"></script>
   </div>
 </body>
 </html>
